@@ -1,0 +1,11 @@
+postgresql.conf
+docker exec -it mks-new-postgres-1 find / -name postgresql.conf
+
+/var/lib/postgresql/data/postgresql.conf
+sudo cp /etc/postgresql/16/main/postgresql.conf ./postgresql.conf
+docker cp ./postgresql.conf mks-new-postgres-1:/var/lib/postgresql/data/postgresql.conf
+
+docker-compose restart postgres
+
+docker exec -it mks-new-postgres-1 psql -U postgres -c "SHOW wal_level;"
+

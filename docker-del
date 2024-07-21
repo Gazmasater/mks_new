@@ -1,0 +1,15 @@
+Остановите и удалите все контейнеры, созданные Docker Compose:
+
+docker-compose down
+
+Удалите все контейнеры:
+
+docker rm -f $(docker ps -a -q)
+
+Удалите все неиспользуемые данные Docker:
+
+docker system prune -a --volumes
+
+Проверьте, что все контейнеры удалены:
+
+docker ps -a
